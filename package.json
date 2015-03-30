@@ -1,0 +1,23 @@
+{
+  "name": "node-neo4j-passport-template",
+  "description": "seed for a node (express 4) neo4j v2 project with passport",
+  "version": "0.0.1",
+  "author": "Matthew Fong <github.com@matthewfong.net>",
+  "main": "app.js",
+  "dependencies": {
+    "bcrypt-nodejs" : "latest",
+    "body-parser": "~1.0.0",
+    "cookie-parser": "~1.0.0",
+    "ejs": "~0.8.5",
+    "express": "~4.0.0",
+    "express-session": "~1.0.0",
+    "morgan": "~1.0.0",
+    "neo4j": "^2.0.0-RC1",
+    "passport" : "~0.1.17",
+    "passport-local" : "~0.1.6",
+    "passport-facebook" : "~1.0.2",
+    "passport-twitter" : "~1.0.2",
+    "passport-google-oauth" : "~0.1.5",
+    "connect-flash" : "~0.1.1"
+  }
+}
