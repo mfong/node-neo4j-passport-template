@@ -3,6 +3,10 @@
   "description": "seed for a node (express 4) neo4j v2 project with passport",
   "version": "0.0.1",
   "author": "Matthew Fong <github.com@matthewfong.net>",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mfong/node-neo4j-passport-template.git"
+  },
   "main": "app.js",
   "dependencies": {
     "bcrypt-nodejs" : "latest",

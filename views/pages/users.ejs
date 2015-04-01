@@ -1,0 +1,15 @@
+<% include ../partials/head %>
+<div class="container">
+	<h1>Users</h1>
+	<% if(users.length > 0) { %>
+		<p>Here are the current users:</p>
+		<ul>
+		<% users.forEach(function(user) { user = user.user; %>
+			<li><a href="/users/<%= user._id %>"><%= user.properties.username %></a></li>
+		<% }); %>
+		</ul>
+	<% } else { %>
+		There are no users
+	<% } %>
+</div>
+<% include ../partials/foot %>

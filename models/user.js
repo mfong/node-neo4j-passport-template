@@ -35,6 +35,22 @@ User.get = function (id, callback) {
 	});
 };
 
+User.getAll = function (callback) {
+	var qp = {
+		query: [
+			'MATCH (user:User)',
+			'RETURN user',
+			'LIMIT 100'
+		].join('\n')
+	}
+
+	db.cypher(qp, function (err, result) {
+		if (err) return callback(err);
+		console.log(result);
+		callback(null, result);
+	});
+};
+
 User.getBy = function (field, value, callback) {
 	var qp = {
 		query: [

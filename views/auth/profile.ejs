@@ -16,6 +16,12 @@
         <a href="/logout" class="btn btn-default btn-sm">Logout</a>
     </div>
 
+    <form action="/user/update" method="post">
+        <p>Edit this user:</p>
+        <input type="text" name="username" placeholder="<%= user.properties.username %>" required />
+        <input type="submit" value="Update"/>
+    </form>
+
     <div class="row">
 
         <!-- LOCAL INFORMATION -->

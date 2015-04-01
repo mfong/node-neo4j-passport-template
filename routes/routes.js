@@ -14,7 +14,7 @@ module.exports = function(app, passport) {
 
 	// PROFILE SECTION =========================
 	app.get('/profile', isLoggedIn, function(req, res) {
-		res.render('profile.ejs', {
+		res.render('auth/profile.ejs', {
 			user : req.user,
 			message : req.flash('connectMessage')
 		});
@@ -26,6 +26,21 @@ module.exports = function(app, passport) {
 		res.redirect('/');
 	});
 
+	// Update User
+	app.post('/user/update', isLoggedIn, function(req, res) {
+		var updateUser = {};
+			updateUser.id = req.user._id;
+			updateUser.props = {};
+				if (req.body.username) {
+					updateUser.props.username = req.body.username;
+				}
+		User.update(updateUser, function(err, user) {
+			if (err)
+				throw err;
+			res.redirect('/profile');
+		});
+	});
+
 // =============================================================================
 // AUTHENTICATE (FIRST LOGIN) ==================================================
 // =============================================================================
@@ -34,7 +49,7 @@ module.exports = function(app, passport) {
 		// LOGIN ===============================
 		// show the login form
 		app.get('/login', function(req, res) {
-			res.render('login.ejs', { message: req.flash('loginMessage') });
+			res.render('auth/login.ejs', { message: req.flash('loginMessage') });
 		});
 
 		// process the login form
@@ -47,7 +62,7 @@ module.exports = function(app, passport) {
 		// SIGNUP =================================
 		// show the signup form
 		app.get('/signup', function(req, res) {
-			res.render('signup.ejs', { message: req.flash('loginMessage') });
+			res.render('auth/signup.ejs', { message: req.flash('loginMessage') });
 		});
 
 		// process the signup form
@@ -89,7 +104,7 @@ module.exports = function(app, passport) {
 
 	// locally --------------------------------
 		app.get('/connect/local', function(req, res) {
-			res.render('connect-local.ejs', { message: req.flash('loginMessage') });
+			res.render('auth/connect-local.ejs', { message: req.flash('loginMessage') });
 		});
 		app.post('/connect/local', passport.authenticate('local-signup', {
 			successRedirect : '/profile', // redirect to the secure profile section
