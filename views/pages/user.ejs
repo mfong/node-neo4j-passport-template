@@ -1,0 +1,13 @@
+<% include ../partials/head %>
+<div class="container">
+	<h1>User: <%=user.properties.username%> <%if (u && u._id == user._id) {%><small>(this is you!)</small><%}%></h1>
+	<%if (u && u._id != user._id) {%><a class="user-action" data-url="/user/<%=user.properties.username%>/follow">Follow</a><%}%>
+	<% relationships.forEach(function (rel) { %>
+		<% if (rel.n._id === rel.r._fromId) { %>
+			<%=rel.r.type%> <%=rel.m.properties.username%>
+		<% } else if (rel.n._id === rel.r._toId) { %>
+			followed by <%=rel.m.properties.username%>
+		<% } %>
+	<% }); %>
+</div>
+<% include ../partials/foot %>

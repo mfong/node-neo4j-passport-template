@@ -5,7 +5,7 @@
 		<p>Here are the current users:</p>
 		<ul>
 		<% users.forEach(function(user) { user = user.user; %>
-			<li><a href="/users/<%= user._id %>"><%= user.properties.username %></a></li>
+			<li><a href="/user/<%= user.properties.username %>"><%= user.properties.username %></a></li>
 		<% }); %>
 		</ul>
 	<% } else { %>
