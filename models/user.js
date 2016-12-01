@@ -117,7 +117,7 @@ User.getUserRelationships = function(id, callback) {
 	var qp = {
 		query: [
 			'START n=node({userId})',
-			'MATCH n-[r]-(m)',
+			'MATCH (n)-[r]-(m)',
 			'RETURN n,r,m'
 		].join('\n'),
 		params: {
