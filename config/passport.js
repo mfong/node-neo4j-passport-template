@@ -8,7 +8,19 @@ var TwitterStrategy  = require('passport-twitter').Strategy;
 var User = require('../models/user');
 
 // load the auth variables
-var configAuth = require('./auth');
+//var configAuth = require('./auth');
+var configAuth = {
+	facebookAuth : {
+		clientID : '',
+		clientSecret : '',
+		callbackURL : ''
+	},
+	twitterAuth : {
+		consumerKey : '',
+		consumerSecret : '',
+		callbackURL : ''
+	}
+};
 
 // expose this function to our app using module.exports
 module.exports = function(passport) {
